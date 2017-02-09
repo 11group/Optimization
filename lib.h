@@ -19,3 +19,33 @@ namespace dih
 		void Dih();
 	};
 }
+
+namespace gold
+{
+	class Golden_Section
+	{
+		double x1, x2, f1, f2;
+		double a = 0., b = 1.;
+		double eps = 1E-3;
+	public:
+		Golden_Section() {};
+		~Golden_Section() {};
+		double func(double x);
+		void Gold();
+	};
+}
+
+namespace fib
+{
+	class Fibonacci
+	{
+		double x1, x2, f1, f2;
+		double a = 0., b = 1.;
+		double eps = 1E-3;
+	public:
+		Fibonacci(){};
+		~Fibonacci(){};
+		double func(double x);
+		void Fib();
+	};
+}
