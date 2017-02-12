@@ -171,6 +171,7 @@ namespace optimization
 	{
 		bool key = true;
 		setlocale(LC_ALL, "Russian");
+		FILE *out = fopen("outputAlg.txt", "w");
 		std::cout << "Введите начальную точку: ";
 		std::cin >> x0;
 		
@@ -202,9 +203,16 @@ namespace optimization
 		}
 		std::cout << "Интервал с минимумом функции:\n";
 		if (h >= 0)
+		{
 			std::cout << "[" << x1 - h / 2 << ";" << x2 << "]";
+			fprintf(out, "[%.15f;%.15f", x1 - h / 2, x2);
+		}
 		else
+		{
 			std::cout << "[" << x2 << ";" << x1 - h / 2 << "]";
+			fprintf(out, "[%.15f;%.15f", x2, x1 - h / 2);
+		}
+		fclose(out);
 		_getch();
 	}
 }
