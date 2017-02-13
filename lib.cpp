@@ -205,7 +205,7 @@ namespace optimization
 		if (h >= 0)
 		{
 			std::cout << "[ " << x1 - h / 2 << " ; " << x2 << " ]";
-			fprintf(out, "[%.15f;%.15f", x1 - h / 2, x2);
+			fprintf(out, "[%.15f ; %.15f ]", x1 - h / 2, x2);
 		}
 		else
 		{
