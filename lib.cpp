@@ -125,7 +125,7 @@ namespace optimization
 		f2 = func(x2);
 		
 		//Ищем минимум 
-		for (i = 1; i<n; i++)
+		for (i = 1; i<=n; i++)
 		{
 			if (f1 <= f2)
 			{
