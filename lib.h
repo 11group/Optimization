@@ -1,9 +1,9 @@
 ////////////////////////////////////////////
 ////////////////////////////////////////////
-////	РўСЂРё РјРµС‚РѕРґР° РїРѕРёСЃРєР° РјРёРЅРёРјСѓРјР°	////////
-////	С„СѓРЅРєС†РёРё РЅР° РѕС‚СЂРµР·РєРµ			////////
-////	Рё РјРµС‚РѕРґ РїРѕРёСЃРєР° РёРЅС‚РµСЂРІР°Р»Р°	////////
-////	СЃРѕРґРµСЂР¶Р°С‰РµРіРѕ РјРёРЅРёРјСѓРј С„СѓРЅРєС†РёРё ////////
+////	Три метода поиска минимума	////////
+////	функции на отрезке			////////
+////	и метод поиска интервала	////////
+////	содержащего минимум функции ////////
 ////////////////////////////////////////////
 
 
@@ -20,9 +20,10 @@ namespace optimization
 {
 	class Dihotomia
 	{
+	protected:
 		double x1, x2, f1, f2;
 		double a = 0., b = 1.;
-		double eps = 1E-14;
+		double eps = 1E-3;
 	public:
 		Dihotomia() {};
 		~Dihotomia() {};
@@ -30,11 +31,8 @@ namespace optimization
 		void Dih();
 	};
 
-	class Golden_Section
+	class Golden_Section:private Dihotomia
 	{
-		double x1, x2, f1, f2;
-		double a = 0., b = 1.;
-		double eps = 1E-14;
 	public:
 		Golden_Section() {};
 		~Golden_Section() {};
@@ -42,15 +40,12 @@ namespace optimization
 		void Gold();
 	};
 
-	class Fibonacci
+	class Fibonacci:private Dihotomia
 	{
-		double x1, x2, f1, f2;
-		double a = 0., b = 3.;
 		std::vector <double> F;
-		double eps = 1E-14;
 	public:
-		Fibonacci(){};
-		~Fibonacci(){};
+		Fibonacci() {};
+		~Fibonacci() {};
 		double func(double x);
 		void Fib();
 	};
@@ -59,7 +54,7 @@ namespace optimization
 	{
 		double x0, x1, x2, f1, f2;
 		double h;
-		double eps = 1E-14;
+		double eps = 1E-3;
 	public:
 		Algoritm() {};
 		~Algoritm() {};
